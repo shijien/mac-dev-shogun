@@ -1,0 +1,41 @@
+name: mac-dev-shogun CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  lint-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install shellcheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+
+      - name: Lint shell scripts
+        run: |
+          shellcheck setup_dev_env.sh
+          shellcheck setup_ai_crypto_tooling.sh
+          shellcheck setup_vscode.sh
+
+  release-helper:
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show tag info and SHA256
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          echo "Tag: $TAG"
+          TARBALL_URL="https://github.com/${{ github.repository }}/archive/refs/tags/${TAG}.tar.gz"
+          echo "Tarball: $TARBALL_URL"
+          curl -L "$TARBALL_URL" -o "mac-dev-shogun-${TAG}.tar.gz"
+          echo "SHA256:"
+          sha256sum "mac-dev-shogun-${TAG}.tar.gz"

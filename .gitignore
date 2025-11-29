@@ -1,0 +1,45 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code settings (only global, allow workspace settings)
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Logs
+*.log
+
+# Python cache (if you add examples later)
+__pycache__/
+*.pyc
+
+# Node modules (in case you add examples)
+node_modules/
+
+# Conda envs should NEVER be committed
+env/
+venv/
+.venv/
+miniforge3/
+miniconda3/
+
+# Shell history
+.zsh_history
+
+# Backup files
+*.bak
+*.backup*
+*.tmp
+*~
+
+# Archive outputs
+*.zip
+*.tar
+*.tar.gz
+*.dmg
+*.pkg
+
+# OS metadata files
+Thumbs.db
