@@ -25,7 +25,7 @@ fi
 ###############################################################################
 # 2. Install VS Code (if not already installed)
 ###############################################################################
-if ! ls /Applications | grep -q "Visual Studio Code.app"; then
+if [[ ! -d "/Applications/Visual Studio Code.app" ]]; then
   echo "➡ Installing Visual Studio Code via Homebrew..."
   brew install --cask visual-studio-code
 else
