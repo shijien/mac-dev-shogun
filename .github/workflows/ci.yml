@@ -19,9 +19,9 @@ jobs:
 
       - name: Lint shell scripts
         run: |
-          shellcheck setup_dev_env.sh
-          shellcheck setup_ai_crypto_tooling.sh
-          shellcheck setup_vscode.sh
+          shellcheck -e SC1091 setup_dev_env.sh
+          shellcheck -e SC1091 setup_ai_crypto_tooling.sh
+          shellcheck -e SC1091 setup_vscode.sh
 
   release-helper:
     if: startsWith(github.ref, 'refs/tags/')

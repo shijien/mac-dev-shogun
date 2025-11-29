@@ -78,6 +78,7 @@ else
 fi
 
 # Initialize conda in this script
+# shellcheck source=/dev/null
 source "$MINI_DIR/etc/profile.d/conda.sh"
 
 # Add to zshrc if missing
@@ -143,6 +144,7 @@ if ! grep -q ".cargo/env" "$HOME/.zshrc"; then
 EOF
 fi
 
+# shellcheck source=/dev/null
 source "$HOME/.cargo/env"
 
 echo "Installing useful Rust cargo tools..."
@@ -155,6 +157,7 @@ if ! command -v forge >/dev/null 2>&1; then
   echo "Installing Foundry (forge, cast, anvil)..."
   curl -L https://foundry.paradigm.xyz | bash
   # foundryup is placed in ~/.foundry/bin
+  # shellcheck source=/dev/null
   source "$HOME/.zshrc" 2>/dev/null || true
   "$HOME/.foundry/bin/foundryup"
 else
