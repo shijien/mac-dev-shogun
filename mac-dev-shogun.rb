@@ -2,7 +2,7 @@ class MacDevShogun < Formula
   desc "Ultimate macOS bootstrapping for AI + Crypto Engineers"
   homepage "https://github.com/shijien/mac-dev-shogun"
   url "https://github.com/shijien/mac-dev-shogun/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "REPLACE_WITH_SHA256_AFTER_RELEASE"
+  sha256 "f26ab1366ab63baa68484da66e2ca2447d051dddd83c59162d36fce67de46338"
   license "MIT"
 
   depends_on "zsh"
