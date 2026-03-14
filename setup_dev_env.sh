@@ -95,7 +95,8 @@ setopt NO_BEEP
 # --------------------------------------------------
 # Zinit init
 # --------------------------------------------------
-export ZINIT[HOME_DIR]="$HOME/.zinit"
+typeset -A ZINIT
+ZINIT[HOME_DIR]="$HOME/.zinit"
 source "$HOME/.zinit/bin/zinit.zsh"
 
 # --------------------------------------------------
