@@ -27,10 +27,6 @@ echo "Running dev environment setup..."
 
 echo
 echo "Reloading shell config..."
-# This won't affect the current shell, but helps on next login
-if [ -f "$HOME/.zshrc" ]; then
-  echo "source ~/.zshrc" > /tmp/mac-dev-shogun-source-zshrc.txt
-fi
 
 echo
 echo "Running AI + crypto tooling setup..."
