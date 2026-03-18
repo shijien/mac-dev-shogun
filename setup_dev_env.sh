@@ -271,6 +271,7 @@ curl -L -o "$JETBRAINS_ZIP" \
 echo "Installing JetBrainsMono Nerd Font into $FONT_DIR..."
 mkdir -p "$FONT_DIR"
 unzip -oq "$JETBRAINS_ZIP" -d "$FONT_DIR"
+rm -f "$JETBRAINS_ZIP"
 
 echo "JetBrainsMono Nerd Font installed."
 
