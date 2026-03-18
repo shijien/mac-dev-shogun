@@ -100,21 +100,18 @@ else
 fi
 
 echo "Installing AI Python stack into 'ai' env..."
-conda activate ai
 
 # Core Python DS stack
-conda install -y numpy pandas scipy scikit-learn jupyterlab matplotlib
+conda run -n ai conda install -y numpy pandas scipy scikit-learn jupyterlab matplotlib
 
 # Deep learning / NLP stack (pip for maximum freshness)
-pip install --upgrade pip
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-pip install "transformers[torch]" datasets accelerate sentencepiece
-pip install ipykernel
+conda run -n ai pip install --upgrade pip
+conda run -n ai pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+conda run -n ai pip install "transformers[torch]" datasets accelerate sentencepiece
+conda run -n ai pip install ipykernel
 
 # Register kernel
-python -m ipykernel install --user --name ai --display-name "Python (ai)"
-
-conda deactivate
+conda run -n ai python -m ipykernel install --user --name ai --display-name "Python (ai)"
 
 # Handy aliases (if not present)
 if ! grep -q "alias acai=" "$HOME/.zshrc"; then
