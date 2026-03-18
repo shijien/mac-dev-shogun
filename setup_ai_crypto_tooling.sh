@@ -73,6 +73,7 @@ if [ ! -d "$MINI_DIR" ]; then
 
   curl -L -o "$TMP_INSTALLER" "$URL"
   bash "$TMP_INSTALLER" -b -p "$MINI_DIR"
+  rm -f "$TMP_INSTALLER"
 else
   echo "Miniforge already installed at $MINI_DIR"
 fi
